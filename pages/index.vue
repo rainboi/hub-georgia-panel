@@ -1,14 +1,24 @@
 <template>
-    <div class="page-container">
-        <h1>Hub Georgia - ჰაბ ჯორჯია</h1>
+    <div class="page-container index">
+        <h1>Hub Georgia</h1>
+        <LoginForm />
     </div>
 </template>
 
 <script>
+import LoginForm from "@/components/LoginForm";
+
 export default {
-    name: "Index"
+    middleware: "notAuthenticated",
+    name: "Index",
+    components: {
+        LoginForm
+    }
 };
 </script>
 
 <style scoped>
+.index {
+    flex-direction: column;
+}
 </style>
