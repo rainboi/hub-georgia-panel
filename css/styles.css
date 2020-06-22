@@ -68,16 +68,16 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
 }
 body {
-  line-height: 1;
+    line-height: 1;
 }
 article,
 aside,
@@ -90,61 +90,61 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+    display: block;
 }
 nav ul {
-  list-style: none;
+    list-style: none;
 }
 blockquote,
 q {
-  quotes: none;
+    quotes: none;
 }
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: none;
+    content: none;
 }
 a {
-  margin: 0;
-  padding: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
-  text-decoration: none;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    text-decoration: none;
 }
 mark {
-  background-color: #ff9;
-  color: #000;
-  font-style: italic;
-  font-weight: bold;
+    background-color: #ff9;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
 }
 del {
-  text-decoration: line-through;
+    text-decoration: line-through;
 }
 abbr[title],
 dfn[title] {
-  border-bottom: 1px dotted;
-  cursor: help;
+    border-bottom: 1px dotted;
+    cursor: help;
 }
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
 }
 input,
 select {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 li {
-  list-style: none;
+    list-style: none;
 }
 
 /* TEMPLATE */
@@ -181,78 +181,112 @@ div::-webkit-scrollbar-track {
 
 body,
 html {
-  margin: 0;
-  min-height: 100vh;
-  background-color: var(--white);
-  min-height: 600px;
-  min-width: 1000px;
-  height: 100%;
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--white);
+    min-height: 600px;
+    min-width: 1000px;
+    height: 100%;
 }
 
 #__layout,
 #__nuxt {
-  height: 100%;
+    height: 100%;
 }
 
 svg {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  color: var(--text-color-2);
+    color: var(--text-color-2);
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 25px;
 }
 
 .page-container {
-  margin: 0 auto;
-  height: 100%;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .layout {
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  box-sizing: border-box;
-  font-family: var(--main-font-en), var(--main-font);
-  font-size: 16px;
-  background-color: var(--gray);
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    font-family: var(--main-font-en), var(--main-font);
+    font-size: 16px;
+    background-color: var(--gray);
+}
+
+form * {
+    font-family: var(--main-font-en), var(--main-font);
 }
 
 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+button:disabled {
+    cursor: default;
+    background-color: var(--dark-gray);
+}
+
+button {
+    background-color: var(--green);
+    cursor: pointer;
+    color: var(--white);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+form * {
+    outline: none;
+}
+
+form *:focus {
+    border: 1px solid var(--green) !important;
 }
 
 @font-face {
-  font-family: "dejavu-sans";
-  src: url(~@/assets/fonts/dejavu-sans-webfont.ttf);
+    font-family: "dejavu-sans";
+    src: url(~@/assets/fonts/dejavu-sans-webfont.ttf);
 }
 
 @font-face {
-  font-family: "gilroy-regular";
-  src: url(~@/assets/fonts/Gilroy-Regular.ttf);
+    font-family: "gilroy-regular";
+    src: url(~@/assets/fonts/Gilroy-Regular.ttf);
 }
 
 :root {
-  --main-font: "dejavu-sans";
-  --main-font-en: "gilroy-regular";
-  --green: #00aa55;
-  --black: #161616;
-  --gray: #f1f1f1;
-  --text-color-1: #000;
-  --text-color-2: #00aa55;
-  --text-color-3: #fff;
-  --white: #fff;
-  --shadow-color: rgba(0, 0, 0, 0.1);
-  --shadow-color-2: rgba(0, 0, 0, 0.2);
+    --main-font: "dejavu-sans";
+    --main-font-en: "gilroy-regular";
+    --green: #00aa55;
+    --black: #161616;
+    --gray: #f1f1f1;
+    --dark-gray: #9f9999;
+    --text-color-1: #000;
+    --text-color-2: #00aa55;
+    --text-color-3: #fff;
+    --white: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-color-2: rgba(0, 0, 0, 0.2);
 }
