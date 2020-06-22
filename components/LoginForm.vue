@@ -25,8 +25,8 @@ export default {
     data() {
         return {
             params: {
-                email: null,
-                password: null
+                email: "test@test.com",
+                password: "test123"
             },
             requesting: false
         };
@@ -62,8 +62,5 @@ form > * {
     box-sizing: border-box;
     padding: 0 10px;
     border: none;
-}
-
-button {
 }
 </style>
