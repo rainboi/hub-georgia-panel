@@ -1,17 +1,89 @@
 <template>
-    <div class="dashboard">
+    <div class="page-container dashboard">
         <h1>Hub Georgia Dashboard</h1>
+        <div class=" snap navigation-contoller-container">
+            <h2>ნავიგაცია</h2>
+            <NavigationController />
+        </div>
+        <hr />
+        <div class=" snap language-contoller-container">
+            <h2>ენა</h2>
+            <LanguageController />
+        </div>
     </div>
 </template>
 
 <script>
+import NavigationController from "@/components/NavigationController";
+import LanguageController from "@/components/LanguageController";
+
 export default {
     middleware: "authenticated",
     name: "Dashboard",
+    components: {
+        NavigationController,
+        LanguageController
+    },
     data() {
         return {};
     }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.dashboard {
+    display: block;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin: 20px 0;
+}
+
+.dashboard > hr {
+    margin: 30px 0;
+    border-width: 3px;
+}
+</style>
+
+<style>
+/* snap */
+
+.snap {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.snap select,
+.snap input,
+.snap button {
+    height: 30px;
+    border-radius: 100vw;
+    outline: none;
+    box-sizing: border-box;
+    border: none;
+    padding: 0 10px;
+}
+
+.snap select:focus,
+.snap input:focus,
+.snap button:focus {
+    border: 2px solid var(--green);
+}
+
+.snap select {
+    border-radius: 0;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+.snap .delete {
+    background-color: var(--red);
+}
+</style>
