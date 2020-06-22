@@ -183,7 +183,7 @@ body,
 html {
     margin: 0;
     min-height: 100vh;
-    background-color: var(--white);
+    background-color: var(--gray);
     min-height: 600px;
     min-width: 1000px;
     height: 100%;
@@ -207,11 +207,15 @@ h4 {
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 40px;
 }
 
 h2 {
-    font-size: 25px;
+    font-size: 35px;
+}
+
+h3 {
+    font-size: 30px;
 }
 
 .page-container {
@@ -245,9 +249,17 @@ img {
     object-fit: cover;
 }
 
+form * {
+    outline: none;
+}
+
+form *:focus {
+    border: 1px solid var(--green) !important;
+}
+
 button:disabled {
-    cursor: default;
-    background-color: var(--dark-gray);
+    cursor: default !important;
+    background-color: var(--dark-gray) !important;
 }
 
 button {
@@ -256,14 +268,11 @@ button {
     color: var(--white);
     font-weight: bold;
     letter-spacing: 1px;
+    border: none !important;
 }
 
-form * {
-    outline: none;
-}
-
-form *:focus {
-    border: 1px solid var(--green) !important;
+button:focus {
+    border: none !important;
 }
 
 @font-face {
@@ -282,6 +291,7 @@ form *:focus {
     --green: #00aa55;
     --black: #161616;
     --gray: #f1f1f1;
+    --red: #e63427;
     --dark-gray: #9f9999;
     --text-color-1: #000;
     --text-color-2: #00aa55;
