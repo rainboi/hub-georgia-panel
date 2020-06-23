@@ -35,13 +35,15 @@ export default {
         ...mapActions({ login: "auth/login" }),
         async submit() {
             this.requesting = true;
-            // const res = await this.login(this.params);
-            const res = await this.$auth.loginWith("local", {
-                data: this.params
-            });
-            console.log(res);
-            if (res) {
-                this.$router.push({ name: "dashboard" });
+            try {
+                const res = await this.$auth.loginWith("local", {
+                    data: this.params
+                });
+                if (res) {
+                    this.$router.push({ name: "dashboard" });
+                }
+            } catch (error) {
+                console.error(error);
             }
             this.requesting = false;
         }
