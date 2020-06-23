@@ -38,6 +38,19 @@ const actions = {
             console.error(error);
             return false;
         }
+    },
+    async update({}, params) {
+        try {
+            const response = await this.$axios.post(
+                `navigation/translate`,
+                params
+            );
+            let data = response.data.result.data;
+            return data ? true : false;
+        } catch (error) {
+            console.error(error);
+            return false;
+        }
     }
 };
 

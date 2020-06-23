@@ -9,56 +9,37 @@
 
         <hr />
 
-        <AddNavigationForm @actionMade="refetch" :langID="selectedLangID" />
+        <AddNavigationForm
+            :navigations="allNavigations"
+            @actionMade="refetch"
+            :langID="selectedLangID"
+        />
 
         <hr />
 
-        <DeleteNavigationForm
+        <DeleteOrNavigationForm
             :navigations="allNavigations"
+            @input="selectedNavID = $event"
             @actionMade="refetch"
         />
-        <!-- <form class="update-navigation">
-            <select class="nav-select" v-model="selectedNavID">
-                <option v-for="nav in all" :key="nav.id" :value="nav.id">{{
-                    nav.title
-                }}</option>
-            </select>
-            <input type="text" v-model="selectedNav.title" />
-            <button :disabled="requesting" class="update">განახლება</button>
-            <button
-                :disabled="requesting"
-                type="button"
-                @click="deleteNavigation"
-                class="delete"
-            >
-                წაშლა
-            </button>
-        </form> -->
 
-        <hr v-if="selectedNav.children && selectedNav.children.length !== 0" />
-
-        <form
-            v-if="selectedNav.children && selectedNav.children.length !== 0"
-            class="update-navigation-child"
+        <div
+            v-if="
+                selectedNav &&
+                    selectedNav.children &&
+                    selectedNav.children.length !== 0
+            "
+            class="sub-navs"
         >
-            <select class="nav-children-select" v-model="selectedNavChildID">
-                <option
-                    v-for="navChild in selectedNav.children"
-                    :key="navChild.id"
-                    :value="navChild.id"
-                    >{{ navChild.title }}</option
-                >
-            </select>
-            <input
-                v-if="selectedChild"
-                type="text"
-                v-model="selectedChild.title"
+            <hr />
+
+            <h3>{{ selectedNav.title }} --- საბ-ნავიგაციები</h3>
+
+            <DeleteOrNavigationForm
+                :navigations="selectedNav.children"
+                @actionMade="refetch"
             />
-            <button :disabled="requesting" class="update">განახლება</button>
-            <button :disabled="requesting" type="button" class="delete">
-                წაშლა
-            </button>
-        </form>
+        </div>
     </div>
 </template>
 
@@ -66,13 +47,13 @@
 import { mapActions, mapGetters } from "vuex";
 import LanguageSelect from "@/components/LanguageSelect";
 import AddNavigationForm from "@/components/Navigation/AddNavigationForm";
-import DeleteNavigationForm from "@/components/Navigation/DeleteNavigationForm";
+import DeleteOrNavigationForm from "@/components/Navigation/DeleteOrNavigationForm";
 
 export default {
     name: "NavigationController",
     components: {
         AddNavigationForm,
-        DeleteNavigationForm,
+        DeleteOrNavigationForm,
         LanguageSelect
     },
     computed: {
@@ -86,22 +67,11 @@ export default {
                     entry => entry.id === this.selectedNavID
                 )
             };
-        },
-        selectedChild() {
-            if (this.selectedNav.children) {
-                return {
-                    ...this.selectedNav.children.find(
-                        entry => entry.id === this.selectedNavChildID
-                    )
-                };
-            }
-            return null;
         }
     },
     data() {
         return {
             selectedNavID: 1,
-            selectedNavChildID: null,
             selectedLangID: 1,
             requesting: false
         };
@@ -135,5 +105,9 @@ export default {
     display: grid;
     grid-template-columns: 30% 30% 30%;
     grid-column-gap: 5%;
+}
+
+.sub-navs h3 {
+    margin-bottom: 15px;
 }
 </style>
