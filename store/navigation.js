@@ -13,6 +13,7 @@ const actions = {
                 `navigation/fetch?lang_id=${langID}`
             );
             await commit("setAll", response.data.result.data);
+            return true;
         } catch (error) {
             console.error(error);
             return false;

@@ -11,6 +11,7 @@ const actions = {
         try {
             const response = await this.$axios.get(`language/fetch`);
             await commit("setAll", response.data.result.data);
+            return true;
         } catch (error) {
             console.error(error);
             return false;
@@ -18,7 +19,8 @@ const actions = {
     },
     async add({}, params) {
         try {
-            await axios.post(`language/add`, params);
+            await this.$axios.post(`language/add`, params);
+            return true;
         } catch (error) {
             console.error(error);
             return false;
