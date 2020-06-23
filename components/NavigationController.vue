@@ -109,8 +109,7 @@ export default {
     methods: {
         ...mapActions({
             fetchAll: "navigation/fetch",
-            deleteNav: "navigation/delete",
-            fetchAllLangs: "language/fetch"
+            deleteNav: "navigation/delete"
         }),
         refetch() {
             this.fetchAll(this.selectedLangID);
@@ -119,10 +118,6 @@ export default {
             this.selectedLangID = e.id;
             this.refetch();
         }
-    },
-    created() {
-        this.fetchAll(this.selectedLangID);
-        this.fetchAllLangs();
     }
 };
 </script>
