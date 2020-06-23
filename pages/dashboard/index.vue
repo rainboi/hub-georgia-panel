@@ -27,6 +27,10 @@ export default {
     },
     data() {
         return {};
+    },
+    async asyncData({ store }) {
+        await store.dispatch("navigation/fetch");
+        await store.dispatch("language/fetch");
     }
 };
 </script>
