@@ -239,7 +239,7 @@ h3 {
     background-color: var(--gray);
 }
 
-form * {
+* {
     font-family: var(--main-font-en), var(--main-font);
 }
 
@@ -273,6 +273,19 @@ button {
 
 button:focus {
     border: none !important;
+    opacity: 0.9;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 @font-face {
@@ -289,6 +302,7 @@ button:focus {
     --main-font: "dejavu-sans";
     --main-font-en: "gilroy-regular";
     --green: #00aa55;
+    --blue: #079ded;
     --black: #161616;
     --gray: #f1f1f1;
     --red: #e63427;

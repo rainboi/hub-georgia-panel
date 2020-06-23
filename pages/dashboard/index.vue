@@ -42,7 +42,7 @@ export default {
 
 h1 {
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 h2 {
@@ -61,6 +61,10 @@ h2 {
 .snap {
     width: 80%;
     margin: 0 auto;
+    border: 2px solid var(--green);
+    padding: 20px;
+    padding-top: 0;
+    border-radius: 15px;
 }
 
 .snap select,
@@ -92,6 +96,10 @@ hr {
     background-color: var(--red);
 }
 
+.snap .update {
+    background-color: var(--blue);
+}
+
 .logout-btn {
     position: absolute;
     top: 5px;
@@ -101,5 +109,6 @@ hr {
     background-color: transparent;
     font-size: 18px;
     color: var(--green);
+    outline: none;
 }
 </style>
