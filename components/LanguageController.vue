@@ -57,7 +57,6 @@ export default {
     },
     methods: {
         ...mapActions({
-            fetchAll: "language/fetch",
             addLang: "language/add"
         }),
         async addLanguage() {
@@ -67,9 +66,6 @@ export default {
             const res = await this.addLang(data);
             console.log(res);
         }
-    },
-    created() {
-        this.fetchAll();
     }
 };
 </script>
