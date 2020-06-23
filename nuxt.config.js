@@ -42,13 +42,31 @@ export default {
      */
     modules: [
         // Doc: https://axios.nuxtjs.org/usage
-        "@nuxtjs/axios"
+        "@nuxtjs/axios",
+        "@nuxtjs/auth"
     ],
     /*
      ** Axios module configuration
      ** See https://axios.nuxtjs.org/options
      */
-    axios: {},
+    axios: {
+        baseURL: "https://api.hub-georgia.ge/api/"
+    },
+    auth: {
+        strategies: {
+            local: {
+                endpoints: {
+                    login: {
+                        url: "authentication/login",
+                        method: "post",
+                        propertyName: "result.data.token"
+                    },
+                    user: false,
+                    logout: false
+                }
+            }
+        }
+    },
     /*
      ** Build configuration
      ** See https://nuxtjs.org/api/configuration-build/

@@ -1,5 +1,5 @@
-export default function({ store, redirect, route }) {
-    if (!!store.state.auth.token) {
+export default function({ $auth, redirect }) {
+    if ($auth.loggedIn) {
         return redirect("/dashboard");
     }
 }
