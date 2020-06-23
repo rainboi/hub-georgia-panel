@@ -1,15 +1,36 @@
 <template>
     <form class="add-navigation" @submit.prevent="addNavigation">
+        <select
+            class="nav-select"
+            v-model.number="newNavigation.parent_id"
+            required
+        >
+            <option :value="0" selected
+                >(აირჩიეთ მშობელი თუ ამატებთ საბ-ნავიგაციას)</option
+            >
+            <option v-for="nav in navigations" :key="nav.id" :value="nav.id">{{
+                nav.title
+            }}</option>
+        </select>
         <input
+            spellcheck="false"
             type="text"
             v-model="newNavigation.title"
             placeholder="სათაური"
             required
         />
         <input
+            spellcheck="false"
             type="text"
             v-model="newNavigation.slug"
-            placeholder="slug"
+            placeholder="სლაგი"
+            required
+        />
+        <input
+            spellcheck="false"
+            type="number"
+            v-model.number="newNavigation.order_id"
+            placeholder="რიგის ნომერი"
             required
         />
         <button :disabled="requesting" class="add">დამატება</button>
@@ -25,7 +46,7 @@ function newNavigationTemplate() {
         slug: null,
         lang_id: 1,
         parent_id: 0,
-        order_id: 1
+        order_id: null
     };
 }
 
@@ -34,6 +55,10 @@ export default {
     props: {
         langID: {
             type: Number,
+            required: true
+        },
+        navigations: {
+            type: Array,
             required: true
         }
     },
@@ -67,7 +92,14 @@ export default {
 <style scoped>
 .add-navigation {
     display: grid;
-    grid-template-columns: 20% 20% 20% 20%;
-    grid-column-gap: calc(20% / 3);
+    grid-template-columns: 45% 45%;
+    grid-column-gap: calc(10% / 2);
+    grid-row-gap: 20px;
+}
+
+.add-navigation button.add {
+    grid-column: 1 / span 2;
+    width: 45%;
+    justify-self: center;
 }
 </style>
