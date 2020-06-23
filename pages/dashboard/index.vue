@@ -1,6 +1,7 @@
 <template>
     <div class="page-container dashboard">
         <h1>Hub Georgia Dashboard</h1>
+        <button class="logout-btn" @click="$auth.logout()">გასვლა</button>
         <div class=" snap navigation-contoller-container">
             <h2>ნავიგაცია</h2>
             <NavigationController />
@@ -85,5 +86,16 @@ hr {
 
 .snap .delete {
     background-color: var(--red);
+}
+
+.logout-btn {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    height: 30px;
+    border-radius: 100vw;
+    background-color: transparent;
+    font-size: 18px;
+    color: var(--green);
 }
 </style>
