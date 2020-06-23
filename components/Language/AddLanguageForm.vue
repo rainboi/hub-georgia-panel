@@ -21,7 +21,7 @@
             placeholder="რიგის ნომერი"
             required
         />
-        <button class="add">დამატება</button>
+        <button :disabled="requesting" class="add">დამატება</button>
     </form>
 </template>
 
@@ -49,9 +49,6 @@ export default {
         async submit() {
             this.requesting = true;
             const params = { ...this.newLanguage };
-            // temp
-            params.lang_id = Math.floor(Math.random() * 100000 + 500);
-            // temp
             const res = await this.addLanguage(params);
             if (res) {
                 this.newLanguage = newLanguageTemplate();
