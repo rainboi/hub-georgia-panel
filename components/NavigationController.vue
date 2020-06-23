@@ -45,7 +45,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import LanguageSelect from "@/components/LanguageSelect";
+import LanguageSelect from "@/components/Language/LanguageSelect";
 import AddNavigationForm from "@/components/Navigation/AddNavigationForm";
 import DeleteOrUpdateNavigationForm from "@/components/Navigation/DeleteOrUpdateNavigationForm";
 
