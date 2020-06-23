@@ -1,23 +1,6 @@
 <template>
     <div class="language-controller">
-        <form submit.prevnet class="add-language">
-            <input
-                type="text"
-                v-model="newLanguage.language"
-                placeholder="ენა"
-            />
-            <input
-                type="text"
-                v-model="newLanguage.lang_acronym"
-                placeholder="აკრონიმი"
-            />
-            <input
-                type="text"
-                v-model.number="newLanguage.lang_id"
-                placeholder="ID"
-            />
-            <button class="add">დამატება</button>
-        </form>
+        <AddLanguageForm @actionMade="refetch" />
         <hr />
         <form submit.prevnet class="language">
             <LanguageSelect
@@ -36,43 +19,35 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import LanguageSelect from "@/components/LanguageSelect";
+import AddLanguageForm from "@/components/Language/AddLanguageForm";
 
 export default {
     name: "LanguageController",
     components: {
-        LanguageSelect
+        LanguageSelect,
+        AddLanguageForm
     },
     computed: {
         ...mapGetters({ all: "language/all" })
     },
     data() {
         return {
-            selectedLanguage: {},
-            newLanguage: {
-                language: null,
-                lang_acronym: null,
-                lang_id: null
-            }
+            selectedLanguage: {}
         };
     },
     methods: {
         ...mapActions({
-            addLang: "language/add"
+            fetchAll: "language/fetch"
         }),
-        async addLanguage() {
-            const data = {
-                ...this.newLanguage
-            };
-            const res = await this.addLang(data);
-            console.log(res);
+        async refetch() {
+            await this.fetchAll();
         }
     }
 };
 </script>
 
 <style scoped>
-.language,
-.add-language {
+.language {
     display: grid;
     grid-template-columns: 16% 16% 16% 16% 16%;
     grid-column-gap: calc(20% / 4);
