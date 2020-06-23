@@ -17,7 +17,7 @@
 
         <hr />
 
-        <DeleteOrNavigationForm
+        <DeleteOrUpdateNavigationForm
             :navigations="allNavigations"
             @input="selectedNavID = $event"
             @actionMade="refetch"
@@ -35,7 +35,7 @@
 
             <h3>{{ selectedNav.title }} --- საბ-ნავიგაციები</h3>
 
-            <DeleteOrNavigationForm
+            <DeleteOrUpdateNavigationForm
                 :navigations="selectedNav.children"
                 @actionMade="refetch"
             />
@@ -47,13 +47,13 @@
 import { mapActions, mapGetters } from "vuex";
 import LanguageSelect from "@/components/LanguageSelect";
 import AddNavigationForm from "@/components/Navigation/AddNavigationForm";
-import DeleteOrNavigationForm from "@/components/Navigation/DeleteOrNavigationForm";
+import DeleteOrUpdateNavigationForm from "@/components/Navigation/DeleteOrUpdateNavigationForm";
 
 export default {
     name: "NavigationController",
     components: {
         AddNavigationForm,
-        DeleteOrNavigationForm,
+        DeleteOrUpdateNavigationForm,
         LanguageSelect
     },
     computed: {
@@ -78,8 +78,7 @@ export default {
     },
     methods: {
         ...mapActions({
-            fetchAll: "navigation/fetch",
-            deleteNav: "navigation/delete"
+            fetchAll: "navigation/fetch"
         }),
         refetch() {
             this.fetchAll(this.selectedLangID);
