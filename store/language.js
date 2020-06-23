@@ -25,6 +25,25 @@ const actions = {
             console.error(error);
             return false;
         }
+    },
+    async delete({}, ID) {
+        try {
+            await this.$axios.post(`language/delete/${ID}`);
+            return true;
+        } catch (error) {
+            console.error(error);
+            return false;
+        }
+    },
+    async update({}, params) {
+        try {
+            let ID = params.id;
+            await this.$axios.post(`language/update/${ID}`, params);
+            return true;
+        } catch (error) {
+            console.error(error);
+            return false;
+        }
     }
 };
 
