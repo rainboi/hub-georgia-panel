@@ -5,6 +5,12 @@
                 nav.title
             }}</option>
         </select>
+        <input
+            type="text"
+            :value="selectedNavigation ? selectedNavigation.slug : null"
+            placeholder="slug"
+            disabled
+        />
         <button :disabled="requesting" class="delete">წაშლა</button>
     </form>
 </template>
@@ -18,6 +24,13 @@ export default {
         navigations: {
             type: Array,
             required: true
+        }
+    },
+    computed: {
+        selectedNavigation() {
+            return this.navigations.find(
+                entry => entry.id === this.selectedNavigationID
+            );
         }
     },
     data() {
@@ -45,5 +58,14 @@ export default {
     display: grid;
     grid-template-columns: 20% 20% 20% 20%;
     grid-column-gap: calc(20% / 3);
+}
+
+input:disabled {
+    background-color: var(--dark-gray);
+    color: var(--white);
+}
+
+input:disabled::placeholder {
+    color: var(--white);
 }
 </style>
