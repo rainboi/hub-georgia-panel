@@ -19,7 +19,7 @@ const actions = {
         }
     },
 
-    async add(params) {
+    async add({}, params) {
         try {
             const response = await this.$axios.post(`navigation/add`, params);
             let data = response.data.result.data;
@@ -29,8 +29,9 @@ const actions = {
             return false;
         }
     },
-    async delete(ID) {
+    async delete({}, ID) {
         try {
+            console.log(ID);
             const response = await this.$axios.post(`navigation/delete/${ID}`);
             let data = response.data.result.data;
             return data ? true : false;
