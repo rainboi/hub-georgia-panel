@@ -31,7 +31,6 @@ const actions = {
     },
     async delete({}, ID) {
         try {
-            console.log(ID);
             const response = await this.$axios.post(`navigation/delete/${ID}`);
             let data = response.data.result.data;
             return data ? true : false;

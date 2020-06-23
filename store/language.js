@@ -16,7 +16,7 @@ const actions = {
             return false;
         }
     },
-    async add(params) {
+    async add({}, params) {
         try {
             await axios.post(`language/add`, params);
         } catch (error) {
