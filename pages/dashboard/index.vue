@@ -22,6 +22,10 @@
         </div>
 
         <hr />
+        <div class="snap post-controller-container">
+            <h2>პოსტი</h2>
+            <PostController />
+        </div>
     </div>
 </template>
 
@@ -29,6 +33,7 @@
 import NavigationController from "@/components/NavigationController";
 import LanguageController from "@/components/LanguageController";
 import PartnerController from "@/components/PartnerController";
+import PostController from "@/components/PostController";
 
 export default {
     middleware: "authenticated",
@@ -36,7 +41,8 @@ export default {
     components: {
         NavigationController,
         LanguageController,
-        PartnerController
+        PartnerController,
+        PostController
     },
     data() {
         return {};
@@ -52,6 +58,7 @@ export default {
 <style scoped>
 .dashboard {
     display: block;
+    margin-bottom: 20px;
 }
 
 h1 {
