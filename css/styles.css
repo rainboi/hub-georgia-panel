@@ -186,7 +186,6 @@ html {
     background-color: var(--gray);
     min-height: 600px;
     min-width: 1000px;
-    height: 100%;
 }
 
 #__layout,
