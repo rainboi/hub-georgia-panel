@@ -2,28 +2,41 @@
     <div class="page-container dashboard">
         <h1>Hub Georgia Dashboard</h1>
         <button class="logout-btn" @click="$auth.logout()">გასვლა</button>
+
         <div class=" snap navigation-contoller-container">
             <h2>ნავიგაცია</h2>
             <NavigationController />
         </div>
         <hr />
+
         <div class=" snap language-contoller-container">
             <h2>ენა</h2>
             <LanguageController />
         </div>
+
+        <hr />
+
+        <div class="snap partner-controller-container">
+            <h2>პარტნიორი</h2>
+            <PartnerController />
+        </div>
+
+        <hr />
     </div>
 </template>
 
 <script>
 import NavigationController from "@/components/NavigationController";
 import LanguageController from "@/components/LanguageController";
+import PartnerController from "@/components/PartnerController";
 
 export default {
     middleware: "authenticated",
     name: "Dashboard",
     components: {
         NavigationController,
-        LanguageController
+        LanguageController,
+        PartnerController
     },
     data() {
         return {};
@@ -31,6 +44,7 @@ export default {
     async asyncData({ store }) {
         await store.dispatch("navigation/fetch");
         await store.dispatch("language/fetch");
+        await store.dispatch("partner/fetch");
     }
 };
 </script>
