@@ -25,8 +25,8 @@ export default {
     data() {
         return {
             params: {
-                email: "test@test.com",
-                password: "test123"
+                email: null,
+                password: null
             },
             requesting: false
         };
